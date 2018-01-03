@@ -1,0 +1,114 @@
+#view-source {
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  z-index: 900;
+}
+
+html, body {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+  }
+  .link-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+  }
+  .link-layout .mdl-layout__header .mdl-layout__drawer-button {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  .mdl-layout__drawer .avatar {
+    margin-bottom: 16px;
+  }
+  .link-drawer {
+    border: none;
+  }
+  /* iOS Safari specific workaround */
+  .link-drawer .mdl-menu__container {
+    z-index: -1;
+  }
+  .link-drawer .link-navigation {
+    z-index: -2;
+  }
+  /* END iOS Safari specific workaround */
+  .link-drawer .mdl-menu .mdl-menu__item {
+    display: flex;
+    align-items: center;
+  }
+  .link-drawer-header {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px;
+    height: 151px;
+  }
+  .link-avatar-dropdown {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .link-navigation {
+    flex-grow: 1;
+  }
+  .link-layout .link-navigation .mdl-navigation__link {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.56);
+    font-weight: 500;
+  }
+  .link-layout .link-navigation .mdl-navigation__link:hover {
+    background-color: #ffffff !important;
+    color: #3E4D54 !important;
+  }
+  .link-navigation .mdl-navigation__link .material-icons {
+    font-size: 24px;
+    color: #3E4D54;
+    margin-right: 32px;
+  }
+  
+  .link-content {
+    max-width: 1080px;
+    height: auto;
+  }
+
+  /**
+  Card
+  **/
+  .link-card-wide.mdl-card {
+    width: 100%;
+    min-height: 120px;
+  }
+  .link-card-wide > .mdl-card__title {
+    color: #fff;
+    background-color: #3949AB;
+  }
+  .link-card-wide > .mdl-card__menu {
+    color: #fff;
+  }
+
+  .mdl-navigation__link:hover {
+    background-color: #e0e0e0 !important;
+    color: #ffffff !important;
+}
+
+.input-field input[type=date]:focus + label,
+    .input-field input[type=text]:focus + label,
+    .input-field input[type=email]:focus + label,
+    .input-field input[type=password]:focus + label {
+      color: #3949AB !important;
+    }
+
+    .input-field input[type=date]:focus,
+    .input-field input[type=text]:focus,
+    .input-field input[type=email]:focus,
+    .input-field input[type=password]:focus {
+      border-bottom: 2px solid #3949AB !important;
+      box-shadow: none !important;
+    }
