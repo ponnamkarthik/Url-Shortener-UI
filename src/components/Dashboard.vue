@@ -25,16 +25,37 @@
           <div class="mdl-card__supporting-text">
             {{link.url}}
           </div>
+          <social-sharing :url="link.short_url" inline-template>
+            <div class="share-holder">
+                <network style="padding: 5px;color: #3949ab;" class="share" network="email">
+                    <i class="fa fa-envelope"></i>
+                </network>
+                <network style="padding: 5px;color: #3949ab;" class="share" network="facebook">
+                  <i class="fa fa-facebook"></i>
+                </network>
+                <network style="padding: 5px;color: #3949ab;" class="share" network="googleplus">
+                  <i class="fa fa-google-plus"></i>
+                </network>
+                <network style="padding: 5px;color: #3949ab;" class="share" network="linkedin">
+                  <i class="fa fa-linkedin"></i>
+                </network>
+                <network style="padding: 5px;color: #3949ab;" class="share" network="sms">
+                  <i class="fa fa-commenting-o"></i>
+                </network>
+                <network style="padding: 5px;color: #3949ab;" class="share" network="telegram">
+                  <i class="fa fa-telegram"></i>
+                </network>
+                <network style="padding: 5px;color: #3949ab;" class="share" network="twitter">
+                  <i class="fa fa-twitter"></i>
+                </network>
+                <network style="padding: 5px;color: #3949ab;" class="share" network="whatsapp">
+                  <i class="fa fa-whatsapp"></i>
+                </network>
+            </div>
+          </social-sharing>
           <div class="mdl-card__menu">
-            <router-link v-bind:to="{name: 'edit-link', params: {id: link.id}}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-              <i class="material-icons">mode_edit</i>
-            </router-link>
             <button @click="openInNewTab(link.short_url)" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
               <i class="fa fa-eye"></i>
-            </button>
-            <!--todo add share functinoality -->
-            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-              <i class="fa fa-share-alt"></i>
             </button>
           </div>
         </div>
@@ -91,3 +112,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.share {
+    padding: 5px;color: #3949ab;
+}
+.share-holder {
+  align-self: center;
+  padding: 10px;
+}
+</style>

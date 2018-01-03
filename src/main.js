@@ -6,11 +6,13 @@ import router from './router'
 import VueClipboard from 'vue-clipboard2'
 
 import VueResource from 'vue-resource'
+import SocialSharing from 'vue-social-sharing'
 
 
 Vue.config.productionTip = false
 Vue.use(VueResource)
 Vue.use(VueClipboard)
+Vue.use(SocialSharing)
 
 /* eslint-disable no-new */
 new Vue({
