@@ -14,7 +14,7 @@
       <i class="material-icons">add</i>
     </router-link>
     <div class="mdl-grid link-content">
-      <div v-for="link in links" v-bind:key="link.id" class="mdl-cell mdl-cell--6-col">
+      <div v-for="link in links" v-bind:key="link.id" class="mdl-cell mdl-cell--6-col card-content" >
         <div class="link-card-wide mdl-card mdl-shadow--2dp">
           <div class="mdl-card__title">
             <h2 style="width:60%" class="mdl-card__title-text">{{link.title}}</h2>

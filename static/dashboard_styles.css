@@ -74,7 +74,7 @@ html, body {
   }
   
   .link-content {
-    max-width: 1080px;
+    width: 100%;
     height: auto;
   }
 
@@ -111,4 +111,10 @@ html, body {
     .input-field input[type=password]:focus {
       border-bottom: 2px solid #3949AB !important;
       box-shadow: none !important;
+    }
+
+    @media (max-width: 1024px) {
+      .card-content {
+        width: 100% !important;
+      }
     }
