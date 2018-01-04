@@ -27,29 +27,29 @@
           </div>
           <social-sharing :url="link.short_url" inline-template>
             <div class="share-holder">
-                <network style="padding: 5px;color: #3949ab;" class="share" network="email">
-                    <i class="fa fa-envelope"></i>
+                <network style="padding: 5px;color: #3949ab;margin: 10px;" class="share" network="email">
+                    <i class="fa fa-2x fa-envelope"></i>
                 </network>
-                <network style="padding: 5px;color: #3949ab;" class="share" network="facebook">
-                  <i class="fa fa-facebook"></i>
+                <network style="padding: 5px;color: #3949ab;margin: 10px;" class="share" network="facebook">
+                  <i class="fa fa-2x fa-facebook"></i>
                 </network>
-                <network style="padding: 5px;color: #3949ab;" class="share" network="googleplus">
-                  <i class="fa fa-google-plus"></i>
+                <network style="padding: 5px;color: #3949ab;margin: 10px;" class="share" network="googleplus">
+                  <i class="fa fa-2x fa-google-plus"></i>
                 </network>
-                <network style="padding: 5px;color: #3949ab;" class="share" network="linkedin">
-                  <i class="fa fa-linkedin"></i>
+                <network style="padding: 5px;color: #3949ab;margin: 10px;" class="share" network="linkedin">
+                  <i class="fa fa-2x fa-linkedin"></i>
                 </network>
-                <network style="padding: 5px;color: #3949ab;" class="share" network="sms">
-                  <i class="fa fa-commenting-o"></i>
+                <network style="padding: 5px;color: #3949ab;margin: 10px;" class="share" network="sms">
+                  <i class="fa fa-2x fa-commenting-o"></i>
                 </network>
-                <network style="padding: 5px;color: #3949ab;" class="share" network="telegram">
-                  <i class="fa fa-telegram"></i>
+                <network style="padding: 5px;color: #3949ab;margin: 10px;" class="share" network="telegram">
+                  <i class="fa fa-2x fa-telegram"></i>
                 </network>
-                <network style="padding: 5px;color: #3949ab;" class="share" network="twitter">
-                  <i class="fa fa-twitter"></i>
+                <network style="padding: 5px;color: #3949ab;margin: 10px;" class="share" network="twitter">
+                  <i class="fa fa-2x fa-twitter"></i>
                 </network>
-                <network style="padding: 5px;color: #3949ab;" class="share" network="whatsapp">
-                  <i class="fa fa-whatsapp"></i>
+                <network style="padding: 5px;color: #3949ab;margin: 10px;" class="share" network="whatsapp">
+                  <i class="fa fa-2x fa-whatsapp"></i>
                 </network>
             </div>
           </social-sharing>
@@ -104,6 +104,27 @@ export default {
         console.log(err)
         Materialize.toast('Error Creating link', 2000, 'rounded')
       })
+      this.loadAd()
+
+    },
+    loadAd() {
+      window.google_ad_client = "123456789";
+      window.google_ad_slot = "123456789";
+      window.google_ad_width = 200;
+      window.google_ad_height = 200;
+
+      // container is where you want the ad to be inserted
+      var container = document.getElementById('ad_container');
+      var w = document.write;
+      document.write = function (content) {
+          container.innerHTML = content;
+          document.write = w;
+      };
+
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'http://pagead2.googlesyndication.com/pagead/show_ads.js';
+      document.body.appendChild(script);
     },
     openInNewTab(url) {
       var win = window.open(url, '_blank');
@@ -115,10 +136,12 @@ export default {
 
 <style scoped>
 .share {
-    padding: 5px;color: #3949ab;
+    padding: 5px;
+    color: #3949ab;
 }
 .share-holder {
   align-self: center;
   padding: 10px;
+  line-height: 3;
 }
 </style>
