@@ -118,3 +118,7 @@ html, body {
         width: 100% !important;
       }
     }
+
+    .mdl-cell {
+      margin: 0px 16px 16px 0px;
+    }

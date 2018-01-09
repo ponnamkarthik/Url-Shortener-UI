@@ -42,26 +42,38 @@ export default {
     }
   },
   methods: {
-    shortLink () {
-      var base_url = "https://urlst.ga/add"
-      this.isLoading = true
-      let user = firebase.auth().currentUser
-      this.$http.get(base_url + '?uid=' + user.uid + '&url=' + this.url + '&code=' + this.code)
-      .then(response => {
-        this.isLoading = false
-        if(!response.data.error) {
-          console.log(response.data)
-          this.$router.push('/dashboard')
-          Materialize.toast('Link Created Successfully', 2000, 'rounded')
+    isValidUrl() {
+      var regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+        if (regexp.test(this.url)) {
+          return true;
         } else {
-          Materialize.toast(response.data.msg, 2000, 'rounded')
+          return false;
         }
-      },
-      e => {
-        this.isLoading = false
-        console.log(e)
-        Materialize.toast('Error Creating link', 2000, 'rounded')
-      })
+    },
+    shortLink () {
+      if(this.isValidUrl()) {
+        var base_url = "https://urlst.ga/add"
+        this.isLoading = true
+        let user = firebase.auth().currentUser
+        this.$http.get(base_url + '?uid=' + user.uid + '&url=' + this.url + '&code=' + this.code)
+        .then(response => {
+          this.isLoading = false
+          if(!response.data.error) {
+            console.log(response.data)
+            this.$router.push('/dashboard')
+            Materialize.toast('Link Created Successfully', 2000, 'rounded')
+          } else {
+            Materialize.toast(response.data.msg, 2000, 'rounded')
+          }
+        },
+        e => {
+          this.isLoading = false
+          console.log(e)
+          Materialize.toast('Error Creating link', 2000, 'rounded')
+        })
+      } else {
+        Materialize.toast('Invalid Link', 2000, 'rounded')
+      }
     }
   }
 }

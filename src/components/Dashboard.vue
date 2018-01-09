@@ -17,7 +17,7 @@
       <div v-for="link in links" v-bind:key="link.id" class="mdl-cell mdl-cell--6-col card-content" >
         <div class="link-card-wide mdl-card mdl-shadow--2dp">
           <div class="mdl-card__title">
-            <h2 style="width:60%" class="mdl-card__title-text">{{link.title}}</h2>
+            <h2 style="width:80%" class="mdl-card__title-text">{{link.title}}</h2>
           </div>
           <div class="mdl-card__supporting-text" style="cursor: copy;" @click="handleCopyStatus()" v-clipboard:copy="link.short_url">
             <strong>{{link.short_url}}  </strong><i class="fa fa-copy"></i>
@@ -104,27 +104,7 @@ export default {
         console.log(err)
         Materialize.toast('Error Creating link', 2000, 'rounded')
       })
-      this.loadAd()
 
-    },
-    loadAd() {
-      window.google_ad_client = "123456789";
-      window.google_ad_slot = "123456789";
-      window.google_ad_width = 200;
-      window.google_ad_height = 200;
-
-      // container is where you want the ad to be inserted
-      var container = document.getElementById('ad_container');
-      var w = document.write;
-      document.write = function (content) {
-          container.innerHTML = content;
-          document.write = w;
-      };
-
-      var script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'http://pagead2.googlesyndication.com/pagead/show_ads.js';
-      document.body.appendChild(script);
     },
     openInNewTab(url) {
       var win = window.open(url, '_blank');

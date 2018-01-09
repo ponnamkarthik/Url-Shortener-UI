@@ -88,7 +88,9 @@
                 this.isLoading = true
                 firebase.auth().signInWithEmailAndPassword(this.email, this.password)
                 .then((result) => {
-                    isLoading = false
+                    this.isLoading = false
+                    Materialize.toast('Login Successful.', 2000, 'rounded')
+                    this.goNext()
                 })
                 .catch((error) => {
                     this.isLoading = false

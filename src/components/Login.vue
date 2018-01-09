@@ -101,8 +101,7 @@
             background: -ms-linear-gradient(45deg, #0288D1 5%, #3949AB 99%);
             background: linear-gradient(45deg, #0288D1 5%, #3949AB 99%);
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0288D1', endColorstr='#3949AB', GradientType=1);
-            width: 90%;
-            height: 80%;
+            width: 96%;
             position: absolute;
             top: 10%;
             left: 5%;
