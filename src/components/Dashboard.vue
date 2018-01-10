@@ -57,6 +57,9 @@
             <button @click="openInNewTab(link.short_url)" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
               <i class="fa fa-eye"></i>
             </button>
+            <button @click="deleteUrl(link.code)" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+              <i class="fa fa-trash"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -81,6 +84,23 @@ export default {
     this.fetchData()
   },
   methods: {
+    deleteUrl(code) {
+      console.log(code)
+      var base_url = "https://urlst.ga/delete"
+        let user = firebase.auth().currentUser
+        this.$http.get(base_url + '?uid=' + user.uid + '&code=' + code)
+        .then(response => {
+          if(!response.data.error) {
+            this.fetchData()
+          } else {
+            Materialize.toast(response.data.msg, 2000, 'rounded')
+          }
+        },
+        e => {
+          console.log(e)
+          Materialize.toast('Error Creating link', 2000, 'rounded')
+        })
+    },
     handleCopyStatus() {
       Materialize.toast('Copied Successfully!', 2000, 'rounded')
     },
