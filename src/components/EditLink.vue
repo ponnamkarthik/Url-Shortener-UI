@@ -46,7 +46,9 @@ export default {
         vm.url = doc.data().url
       })
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      
+    })
   },
   methods: {
     fetchData () {

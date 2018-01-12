@@ -59,7 +59,6 @@ export default {
         .then(response => {
           this.isLoading = false
           if(!response.data.error) {
-            console.log(response.data)
             this.$router.push('/dashboard')
             Materialize.toast('Link Created Successfully', 2000, 'rounded')
           } else {
@@ -68,7 +67,6 @@ export default {
         },
         e => {
           this.isLoading = false
-          console.log(e)
           Materialize.toast('Error Creating link', 2000, 'rounded')
         })
       } else {

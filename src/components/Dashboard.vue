@@ -85,7 +85,6 @@ export default {
   },
   methods: {
     deleteUrl(code) {
-      console.log(code)
       var base_url = "https://urlst.ga/delete"
         let user = firebase.auth().currentUser
         this.$http.get(base_url + '?uid=' + user.uid + '&code=' + code)
@@ -97,7 +96,6 @@ export default {
           }
         },
         e => {
-          console.log(e)
           Materialize.toast('Error Creating link', 2000, 'rounded')
         })
     },
@@ -121,7 +119,6 @@ export default {
       })
       .catch(e => {
         this.isLoading = false
-        console.log(err)
         Materialize.toast('Error Creating link', 2000, 'rounded')
       })
 
