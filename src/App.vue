@@ -60,8 +60,6 @@ export default {
         this.name = user.displayName
         this.email = user.email
         this.image = user.photoURL
-        console.log(this.email)
-        console.log(this.image)
         this.isLoggedin = true
       } else {
         this.isLoggedin = false
