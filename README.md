@@ -4,7 +4,7 @@
 
 ## Check Demo at
 
-[Click Here](https://urlst.ga/)
+[Click Here (https://urlst.ga/)](https://urlst.ga/)
 
 ## Build Setup
 
